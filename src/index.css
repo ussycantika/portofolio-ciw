@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,400;1,600&family=Syne:wght@700;800&display=swap');
+@import "tailwindcss";
+
+@layer base {
+
+  :root {
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-bebas: 'Bebas Neue', sans-serif;
+    --font-script: 'Caveat', cursive, sans-serif;
+
+    /* Light Plum Theme Tokens */
+    --c-bg: #fcf5f7;
+    --c-bg-sand: #f3e6ea;
+    --c-card-bg: rgba(255, 255, 255, 0.88);
+    --c-ink: #1c0b18;
+    --c-muted: #6e4d58;
+    --c-faint: #ad8c96;
+    --c-border: rgba(184, 88, 108, 0.18);
+    --c-border-hover: rgba(224, 114, 134, 0.6);
+    --c-accent: #e07286;
+    --c-accent-glow: rgba(224, 114, 134, 0.25);
+    --c-badge-bg: rgba(224, 114, 134, 0.1);
+    --c-grid-line: rgba(28, 11, 24, 0.05);
+  }
+
+  .dark {
+    /* High-Fashion Editorial Dark Plum & Warm Coral Palette (Matching Reference Image) */
+    --c-bg: #150913;
+    --c-bg-sand: #231120;
+    --c-card-bg: rgba(35, 17, 32, 0.82);
+    --c-ink: #fcf5f7;
+    --c-muted: #c9a7b1;
+    --c-faint: #7a5563;
+    --c-border: rgba(242, 142, 142, 0.18);
+    --c-border-hover: rgba(242, 142, 142, 0.6);
+    --c-accent: #f28e8e;
+    --c-accent-glow: rgba(242, 142, 142, 0.35);
+    --c-badge-bg: rgba(242, 142, 142, 0.14);
+    --c-grid-line: rgba(242, 142, 142, 0.05);
+  }
+
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--c-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-muted);
+}
+
+/* Typography Helpers */
+.font-mono-tech {
+  font-family: var(--font-mono);
+}
+
+.font-serif-accent {
+  font-family: var(--font-serif);
+}
+
+.font-bebas-hero {
+  font-family: var(--font-bebas);
+}
+
+.font-script-accent {
+  font-family: var(--font-script);
+}
+
+/* Circular Rotating Stamp Animation */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+/* Hover Accent Utility */
+.hover-accent {
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.hover-accent:hover {
+  color: var(--c-accent);
+}
+
+/* Technical Crosshair Background */
+.tech-grid-pattern {
+  background-image: 
+    linear-gradient(to right, var(--c-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--c-grid-line) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: var(--c-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--c-border);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: var(--c-border-hover);
+  box-shadow: 0 10px 30px -10px var(--c-accent-glow);
+}
+
+/* Glow Effect */
+.glow-effect {
+  box-shadow: 0 0 25px var(--c-accent-glow);
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(-8deg); }
+  50% { transform: translateY(-6px) rotate(-6deg); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
